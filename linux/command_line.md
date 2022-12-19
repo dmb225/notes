@@ -80,6 +80,8 @@ md5sum "${output_path}/${france}.osm.pbf" |awk '{print $1}' > "${output_path}/${
 
 ```bash
 tailf routemm | grep "92.*400.*GET" | grep APIX
+
+tail -f --lines=10000 /var/log/tornik/tornik-traffic|grep "traffic situations in
 ```
 
 ## tee
@@ -108,6 +110,17 @@ free -m
 
 ```bash
 nc -zv <address> <port> -w <timeout>
+```
+
+## netstat
+```bash
+netstat -a -n | grep 5672 
+```
+
+## tcpdump
+
+```bash
+l
 ```
 
 ## telnet
@@ -178,6 +191,8 @@ grep -R -o 'ITIMM-[0-9]*' | cut -d ':' -f2 > itimm.txt
 ## curl
 
 ```bash
+curl snap-route-mm-001.mappy.priv/ 2>/dev/null | jq -r '.manifest.commit' 
+
 curl localhost:8007/st_pedestrian_route_rpc -d@<file.json>
 
 curl --location --request GET 'https://toto.net/myapi/7.0/routes?from=2.581988,48.880588&to=2.2491160684509803,48.81781779236697&clientid=titi&lang=fr_FR&departure=true&qid=idSameRequest&providers=tc' --header 'apikey: xIfzQzDcpozke'
