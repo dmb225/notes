@@ -90,6 +90,7 @@ tail -f --lines=10000 /var/log/tornik/tornik-traffic|grep "traffic situations in
 <command> 2>&1 # redirects stderr into stdout 
 <command> | tee <file> # redirects standard output to both the console and a file
 <command> 2>&1 | tee <file> # both previous
+<command> >/dev/null 2>&1 # Hide standard and error outputs
 ```
 
 # History
