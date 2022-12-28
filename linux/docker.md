@@ -1,9 +1,16 @@
+- [Build](build)
 - [Cache](cache)
 - [Registry](registry)
 - [Run](run)
 - [Tests](tests)
 - [Troubleshooting]
 - [Tutorials](tutorials)
+
+
+# Build
+```bash
+docker build -t route_frontal_runtime --network host -f jobs/runtime.Dockerfile dist
+```
 
 # Cache
 
@@ -46,7 +53,11 @@ Or en docker, ce qui prend de la place, ce sont surtout les 1ères layers, qui c
 ## Get terminal 
 
 ```bash
-docker run -ti --entrypoint /bin/bash slatedocs/slate:latest 
+docker run -ti --entrypoint /bin/bash slatedocs/slate:latest
+
+docker run --mount type=bind,source=/home/x2027539@ratpsmart.local/Projects/route-frontal/route-frontal.conf,target=/conf/route-frontal.conf --publish 9090:8889 --name route-frontal route_frontal_runtime
+
+docker run --mount type=bind,source=/home/x2027539@ratpsmart.local/Projects/route-frontal/route-frontal.conf,target=/conf/route-frontal.conf --publish 9090:8889 --name route-frontal route_frontal_runtime >>/home/x2027539@ratpsmart.local/temp/log_route_frontal/logs 2>&1
 ```
 
 # Tests
