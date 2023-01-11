@@ -22,7 +22,6 @@ RUN npm install -g swagger-to-slate 
 COPY add_rights.sh /srv/slate/ 
 RUN chmod +x /srv/slate/add_rights.sh 
 
-  
 
 RUN apt install -y npm failed but docker finds npm it in its cache 
 Package npm is not available, but is referred to by another package. 

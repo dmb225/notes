@@ -103,6 +103,8 @@ echo 'export HISTTIMEFORMAT="%d/%m/%y %T "' >> ~/.bash_aliases
 
 ```bash
 free -m
+
+free -mh
 ```
 
 # Networking
@@ -111,11 +113,16 @@ free -m
 
 ```bash
 nc -zv <address> <port> -w <timeout>
+ex: nc -zv recette-traffic-flow-decoder-002.th2.prod 5432 -w 5
 ```
 
 ## netstat
 ```bash
-netstat -a -n | grep 5672 
+netstat -a -n | grep 5672
+
+sudo netstat -tulpn | grep LISTEN
+
+sudo netstat -natp | grep 8080 # active connections on port 8080
 ```
 
 ## tcpdump
@@ -193,6 +200,8 @@ grep -R -o 'ITIMM-[0-9]*' | cut -d ':' -f2 > itimm.txt
 
 ```bash
 curl snap-route-mm-001.mappy.priv/ 2>/dev/null | jq -r '.manifest.commit' 
+
+curl 'http://localhost:8000/rt_car_route_rpc' -d '{ "query" : "version", "args" : {} }'
 
 curl localhost:8007/st_pedestrian_route_rpc -d@<file.json>
 

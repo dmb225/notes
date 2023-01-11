@@ -32,5 +32,6 @@ scp /home/jenkins/.ssh/* jenkins@build-route-slave-001:/home/jenkins/.ssh 
 
 ```bash
 ssh -i ~/.ssh/monitor.dsa -N -L 5672:localhost:5672 monitor@recette-route-engine-001.th2.prod 
-ssh -N -L 8000:recette-route-engine-002.th2.prod:8000 recette-route-engine-002 
+ssh -N -L 8000:recette-route-engine-002.th2.prod:8000 recette-route-engine-002
+ssh -N -L 8000:snap-route-engine-001.mappy.priv:8000 snap-route-engine-001.mappy.priv
 ```
